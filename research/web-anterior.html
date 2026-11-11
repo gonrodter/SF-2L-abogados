@@ -1,0 +1,542 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=40f4f3b5-bb46-4806-99f9-5f2ee8271ec3
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SF 2L Abogados | Despacho de Abogados en Sevilla</title>
+  <meta name="description" content="SF 2L Abogados. Despacho de abogados en Sevilla. Derecho Civil y Penal, atención personalizada, contacto directo, ubicación en Google Maps, Instagram, LinkedIn y formulario de contacto." />
+  <meta name="theme-color" content="#111111" />
+  <style>
+    :root{
+      --bg:#f6f6f6;
+      --paper:#ffffff;
+      --paper-soft:#fbfbfb;
+      --ink:#111111;
+      --muted:#5c5c5c;
+      --line:#e7e7e7;
+      --brand:#111111;
+      --brand-2:#262626;
+      --shadow:0 18px 44px rgba(0,0,0,.06);
+      --radius:26px;
+      --max:1240px;
+      --whatsapp:#25D366;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
+    header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(246,246,246,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:84px;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .brand img{height:46px;width:auto}
+    nav ul{
+      list-style:none;margin:0;padding:0;
+      display:flex;gap:24px;align-items:center;
+      color:var(--muted);font-weight:700;
+    }
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 22px;border-radius:999px;font-weight:800;
+      border:1px solid transparent;transition:.2s ease;cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:var(--brand);color:#fff}
+    .btn.secondary{background:#fff;border-color:var(--line)}
+    .eyebrow{
+      display:inline-block;
+      padding:9px 14px;border-radius:999px;
+      background:#fff;border:1px solid var(--line);
+      color:var(--brand);font-size:.84rem;font-weight:800;
+      box-shadow:var(--shadow);
+    }
+
+    .hero{
+      padding:88px 0 56px;
+      background:
+        radial-gradient(circle at top left, rgba(0,0,0,.05), transparent 32%),
+        radial-gradient(circle at 88% 10%, rgba(0,0,0,.035), transparent 28%);
+    }
+    .hero-grid,.grid-3,.grid-4,.split,.social-grid,.contact,.contact-actions{
+      display:grid;gap:20px;
+    }
+    .hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .split,.social-grid,.contact{grid-template-columns:1fr 1fr}
+    .contact-actions{grid-template-columns:repeat(3,1fr)}
+    h1{
+      margin:14px 0 16px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+      font-size:clamp(2.8rem, 5.2vw, 5.4rem);
+    }
+    .lead{
+      margin:0 0 26px;
+      color:var(--muted);
+      font-size:1.12rem;
+      max-width:48ch;
+    }
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .trust{
+      display:flex;gap:18px;flex-wrap:wrap;
+      margin-top:22px;color:var(--muted);
+      font-size:.95rem;font-weight:700;
+    }
+
+    section{padding:44px 0}
+    .section-title{
+      margin:0 0 10px;
+      font-size:2.05rem;
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+    .section-intro{
+      margin:0 0 26px;
+      color:var(--muted);
+      max-width:76ch;
+    }
+
+    .card,.box,.metric-card,.hero-visual,.hero-logo,.review-stage,.review-card,.social-box,.contact-box,.action-card,.footer-panel{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+    .card,.box,.social-box,.contact-box,.action-card,.footer-panel{padding:28px}
+    .hero-visual{padding:22px}
+    .hero-logo{
+      padding:30px;
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+    }
+    .hero-logo img{max-width:430px;margin:0 auto}
+    .logo-left img{max-width:320px;width:100%}
+    .hero-mini{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:14px;margin-top:14px;
+    }
+    .mini{
+      padding:18px;border:1px solid var(--line);
+      border-radius:20px;background:var(--paper-soft);
+    }
+    .mini strong{display:block;color:var(--brand);margin-bottom:4px}
+
+    .accent{
+      display:inline-block;margin-bottom:10px;
+      font-size:.84rem;font-weight:800;
+      color:#111;text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .metric-card{text-align:center;padding:22px}
+    .metric-card strong{
+      display:block;color:var(--brand);
+      font-size:1.7rem;line-height:1.1;margin-bottom:6px;
+    }
+
+    .statement{
+      background:linear-gradient(135deg,#111,#2b2b2b);
+      color:#fff;border:none;
+    }
+    .statement p{color:rgba(255,255,255,.88)}
+
+    .review-stage{padding:18px;overflow:hidden}
+    .review-track{display:flex;transition:transform .55s ease}
+    .review-card{
+      min-width:100%;
+      padding:34px;
+      text-align:center;
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+    }
+    .review-stars{font-size:1.2rem;letter-spacing:.18em;margin-bottom:14px}
+    .review-quote{font-size:1.2rem;line-height:1.6;max-width:760px;margin:0 auto 18px}
+    .review-name{font-weight:800}
+    .review-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+    .dot{width:10px;height:10px;border-radius:999px;background:#d0d0d0;cursor:pointer}
+    .dot.active{background:#111}
+
+    .insta-visual{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .insta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .insta-tile{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      background:#fff;
+      min-height:180px;
+      display:flex;align-items:center;justify-content:center;
+      padding:18px;
+    }
+    .insta-tile img{width:100%;height:100%;object-fit:contain}
+    .insta-caption{font-weight:800;text-align:center}
+    .social-link{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:16px 18px;
+      background:#fff;border:1px solid var(--line);
+      border-radius:18px;font-weight:800;color:var(--brand);
+    }
+    .social-link small{display:block;color:var(--muted);font-weight:700}
+
+    .action-card{text-align:center}
+    .action-card h3{margin:0 0 10px}
+    .action-card p{margin:0 0 18px;color:var(--muted)}
+    .form-grid{display:grid;gap:12px}
+    .field{
+      padding:14px 16px;border:1px solid var(--line);
+      border-radius:14px;font:inherit;background:#fff;
+    }
+    .map{width:100%;min-height:320px;border:0;border-radius:20px}
+    .footer-panel p{margin:0;color:var(--muted)}
+    .wa-float{
+      position:fixed;right:18px;bottom:18px;z-index:120;
+      width:62px;height:62px;border-radius:999px;
+      background:var(--whatsapp);color:#fff;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 14px 34px rgba(37,211,102,.34);
+      border:3px solid #fff;
+    }
+    .wa-float svg{width:30px;height:30px;fill:currentColor}
+    footer{
+      padding:28px 0 54px;border-top:1px solid var(--line);
+      color:var(--muted);font-size:.95rem;
+    }
+
+    @media (max-width:1040px){
+      .hero-grid,.grid-4,.grid-3,.split,.social-grid,.contact,.insta-visual,.contact-actions{
+        grid-template-columns:1fr;
+      }
+      nav ul,.nav-actions{display:none}
+      .hero-mini,.insta-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      h1{font-size:2.9rem}
+      .hero{padding-top:66px}
+      .trust{gap:10px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="SF 2L Abogados inicio">
+        <img src="logo.png" alt="SF 2L Abogados" />
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#despacho">Despacho</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#redes">Redes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn secondary" href="https://www.instagram.com/sf2l_abogados/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="https://wa.me/34600785104?text=Hola%2C%20he%20visto%20la%20web%20de%20SF%202L%20Abogados%20y%20quiero%20consultar%20mi%20caso." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Despacho de abogados · Sevilla · Civil y Penal</span>
+          <div class="logo-left" style="margin:24px 0 14px;">
+            <img src="logo_completo.png" alt="SF 2L Abogados">
+          </div>
+          <h1>SF 2L Abogados</h1>
+          <p class="lead">
+            Asesoramiento jurídico personalizado, trato cercano y defensa rigurosa en asuntos de Derecho Civil y Penal.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contacto">Solicitar consulta</a>
+            <a class="btn secondary" href="tel:+34600785104">Llamar ahora</a>
+            <a class="btn primary" href="https://wa.me/34600785104?text=Hola%2C%20he%20visto%20la%20web%20de%20SF%202L%20Abogados%20y%20quiero%20consultar%20mi%20caso." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <div class="trust">
+            <span>⭐ 5,0/5 en Google</span>
+            <span>📍 Monte Carmelo, 32, Local 1B · Sevilla</span>
+            <span>⚖️ Atención directa y personalizada</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-logo">
+            <img src="logo_completo.png" alt="Logo SF 2L Abogados">
+          </div>
+          <div class="hero-mini">
+            <div class="mini">
+              <strong>Derecho Civil</strong>
+              Reclamaciones, contratos, arrendamientos, familia y responsabilidad civil.
+            </div>
+            <div class="mini">
+              <strong>Derecho Penal</strong>
+              Defensa penal, denuncias, juicios, delitos leves y ejecución.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:18px;">
+      <div class="container" style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-weight:700;color:#444;">
+        <span>Despacho en Sevilla</span><span>·</span><span>Derecho Civil</span><span>·</span><span>Derecho Penal</span><span>·</span><span>Atención personalizada</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-4">
+        <div class="metric-card"><strong>5,0/5</strong>Valoración visible en Google</div>
+        <div class="metric-card"><strong>30</strong>Reseñas publicadas</div>
+        <div class="metric-card"><strong>3 sedes</strong>Sevilla, Algeciras y Melilla</div>
+        <div class="metric-card"><strong>Contacto directo</strong>WhatsApp, llamada y correo</div>
+      </div>
+    </section>
+
+    <section id="despacho">
+      <div class="container split">
+        <div class="box">
+          <h2 class="section-title">El despacho</h2>
+          <p>
+            SF 2L Abogados desarrolla una forma de trabajo basada en la cercanía con el cliente, el estudio riguroso del asunto y una comunicación clara durante todo el procedimiento. Cada caso se aborda de manera individual, con una estrategia adaptada a sus circunstancias concretas.
+          </p>
+        </div>
+        <div class="box statement">
+          <h2 class="section-title" style="margin-top:0;">Atención profesional y presencia clara</h2>
+          <p>
+            Un despacho orientado a ofrecer soluciones jurídicas serias, visualmente cuidadas y con un contacto sencillo para el cliente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <h2 class="section-title">Áreas de actuación</h2>
+        <p class="section-intro">
+          Asesoramiento jurídico con enfoque práctico, atención personalizada y seguimiento directo del asunto, tanto en materias civiles como penales.
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <span class="accent">Derecho Civil</span>
+            <h3>Contratos, reclamaciones, arrendamientos y familia</h3>
+            <p>Intervenimos en conflictos civiles, responsabilidad civil, reclamaciones de cantidad, arrendamientos y cuestiones patrimoniales o familiares.</p>
+          </article>
+          <article class="card">
+            <span class="accent">Derecho Penal</span>
+            <h3>Defensa penal, denuncias y asistencia letrada</h3>
+            <p>Asumimos la defensa del cliente en procedimientos penales, denuncias, juicios, delitos leves y fase de ejecución.</p>
+          </article>
+          <article class="card">
+            <span class="accent">Atención personalizada</span>
+            <h3>Estrategia jurídica diseñada para cada caso</h3>
+            <p>Analizamos la documentación, valoramos escenarios y trazamos una hoja de ruta clara, seria y adaptada a cada situación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resenas">
+      <div class="container">
+        <h2 class="section-title">Confianza de nuestros clientes</h2>
+        <p class="section-intro">
+          Reseñas presentadas de forma visual y dinámica, reforzando la confianza y la imagen del despacho.
+        </p>
+        <div class="review-stage">
+          <div class="review-track" id="reviewTrack">
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“Magnífico servicio con un asesoramiento impecable, trato muy cercano y explicando las cosas de forma totalmente comprensible.”</p>
+              <div class="review-name">Jaime Ramírez</div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“Un servicio ejemplar recibido. Cuando te ves envuelta en procesos de este tipo, necesitas un equipo que te acompañe y esté atento de todo.”</p>
+              <div class="review-name">Saray Fonseca</div>
+            </div>
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-quote">“Destacan por su gran profesionalidad, experiencia y, sobre todo, por el trato humano y cercano. Ofrecen una atención muy personalizada.”</p>
+              <div class="review-name">Maria Zayas</div>
+            </div>
+          </div>
+          <div class="review-dots" id="reviewDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="redes">
+      <div class="container social-grid">
+        <div class="social-box">
+          <h2 class="section-title">Instagram del despacho</h2>
+          <p class="section-intro" style="margin-bottom:16px;">
+            Acceso directo al perfil de Instagram para ver publicaciones, contenido jurídico y actividad del despacho.
+          </p>
+          <div class="insta-visual">
+            <div class="insta-grid">
+              <div class="insta-tile"><img src="logo_completo.png" alt="SF 2L Abogados"></div>
+              <div class="insta-tile"><div class="insta-caption">Publicaciones jurídicas</div></div>
+              <div class="insta-tile"><div class="insta-caption">Actualidad del despacho</div></div>
+              <div class="insta-tile"><div class="insta-caption">Contenido visual e informativo</div></div>
+            </div>
+            <div class="box" style="display:flex;flex-direction:column;justify-content:center;">
+              <h3 style="margin-top:0;">@sf2l_abogados</h3>
+              <p style="margin-bottom:18px;">Perfil oficial de SF 2L Abogados en Instagram.</p>
+              <a class="social-link" href="https://www.instagram.com/sf2l_abogados/" target="_blank" rel="noopener">
+                <span>Visitar Instagram<small>Perfil oficial del despacho</small></span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-box">
+          <h2 class="section-title">LinkedIn</h2>
+          <p style="margin-bottom:18px;">Acceso directo al perfil corporativo del despacho en LinkedIn.</p>
+          <a class="social-link" href="https://www.linkedin.com/company/sf-2l-abogados/?viewAsMember=true" target="_blank" rel="noopener">
+            <span>linkedin.com/company/sf-2l-abogados<small>Perfil del despacho</small></span>
+            <span>↗</span>
+          </a>
+          <div style="height:16px;"></div>
+          <a class="social-link" href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0LE-LN66oSiszYLRSMahIMTQySzEwMDM1tDROTU2xMqgwNUtKNjNINU1JMTE0MzBI8-IrTlMwylFITMpPT0zJLwYAsasUNA&q=sf+2l+abogados&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">
+            <span>Google del despacho<small>Ficha y presencia en Google</small></span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-intro">
+          Cada vía de contacto aparece diferenciada y directa para que el cliente elija la opción más cómoda.
+        </p>
+
+        <div class="contact-actions" style="margin-bottom:20px;">
+          <div class="action-card">
+            <span class="accent">Teléfono</span>
+            <h3>Llamada directa</h3>
+            <p>Pulsa y llama al número principal del despacho.</p>
+            <a class="btn primary" href="tel:+34600785104">600.785.104</a>
+          </div>
+          <div class="action-card">
+            <span class="accent">WhatsApp</span>
+            <h3>Conversación directa</h3>
+            <p>Abre el chat del despacho al instante.</p>
+            <a class="btn secondary" href="https://wa.me/34600785104?text=Hola%2C%20he%20visto%20la%20web%20de%20SF%202L%20Abogados%20y%20quiero%20consultar%20mi%20caso." target="_blank" rel="noopener">Abrir WhatsApp</a>
+          </div>
+          <div class="action-card">
+            <span class="accent">Correo</span>
+            <h3>Direcciones de email</h3>
+            <p><a href="mailto:josejsanchezfernandez@gmail.com">josejsanchezfernandez@gmail.com</a><br><a href="mailto:sf2labogados@gmail.com">sf2labogados@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="contact-box">
+            <h3 style="margin-top:0;">Formulario de contacto</h3>
+            <p style="margin-bottom:16px;">
+              Rellena los datos y se abrirá tu aplicación de correo con el mensaje preparado para enviarlo directamente al despacho.
+            </p>
+            <form onsubmit="sendMail(event)" class="form-grid">
+              <input id="name" class="field" type="text" placeholder="Nombre y apellidos" required>
+              <input id="email" class="field" type="email" placeholder="Correo electrónico" required>
+              <input id="phone" class="field" type="text" placeholder="Teléfono">
+              <textarea id="message" class="field" placeholder="Cuéntanos brevemente tu caso" required rows="6" style="resize:vertical;"></textarea>
+              <button class="btn primary" type="submit">Contactar directamente</button>
+            </form>
+          </div>
+
+          <div class="contact-box">
+            <h3 style="margin-top:0;">Datos del despacho</h3>
+            <p><strong>Teléfono principal:</strong><br><a href="tel:+34600785104">600.785.104</a></p>
+            <p><strong>WhatsApp:</strong><br><a href="https://wa.me/34600785104?text=Hola%2C%20he%20visto%20la%20web%20de%20SF%202L%20Abogados%20y%20quiero%20consultar%20mi%20caso." target="_blank" rel="noopener">Abrir conversación directa</a></p>
+            <p><strong>Correos electrónicos:</strong><br><a href="mailto:josejsanchezfernandez@gmail.com">josejsanchezfernandez@gmail.com</a><br><a href="mailto:sf2labogados@gmail.com">sf2labogados@gmail.com</a></p>
+            <p><strong>Dirección:</strong><br>C. Monte Carmelo, 32, Local 1B, 41011 Sevilla</p>
+            <p><strong>Provincia:</strong><br>Sevilla</p>
+            <p><strong>Horario:</strong><br>Abierto · Cierre: 14:00</p>
+          </div>
+        </div>
+
+        <div class="contact-box" style="margin-top:20px;">
+          <h3 style="margin-top:0;">Ubicación</h3>
+          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=C.%20Monte%20Carmelo%2C%2032%2C%20Local%201B%2C%2041011%20Sevilla&output=embed" title="Mapa de SF 2L Abogados en Sevilla"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="footer-panel">
+          <h2 class="section-title">Despacho de abogados en Sevilla</h2>
+          <p>
+            Si buscas un <strong>despacho de abogados en Sevilla</strong> con imagen cuidada, atención cercana y asesoramiento jurídico personalizado, en SF 2L Abogados encontrarás una firma orientada a ofrecer soluciones claras, rigurosas y adaptadas a cada caso, tanto en <strong>Derecho Civil</strong> como en <strong>Derecho Penal</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa-float" href="https://wa.me/34600785104?text=Hola%2C%20he%20visto%20la%20web%20de%20SF%202L%20Abogados%20y%20quiero%20consultar%20mi%20caso." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.23c-.29-.14-1.71-.84-1.98-.93-.27-.1-.47-.14-.67.14-.19.29-.77.93-.95 1.12-.17.19-.35.22-.64.07-.29-.14-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.35.43-.52.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.19 0-.5.07-.77.36-.26.29-1 1-.96 2.43.04 1.43 1.02 2.82 1.17 3.01.14.19 2 3.06 4.84 4.29.68.29 1.21.47 1.63.61.68.22 1.3.19 1.79.12.55-.08 1.71-.7 1.95-1.38.24-.67.24-1.24.17-1.38-.07-.14-.26-.22-.55-.36zM16.01 2.67C8.64 2.67 2.67 8.64 2.67 16c0 2.59.74 5.09 2.15 7.25L3 29.33l6.25-1.64A13.27 13.27 0 0 0 16.01 29.33c7.36 0 13.33-5.97 13.33-13.33 0-7.36-5.97-13.33-13.33-13.33zm0 24.31c-2.19 0-4.34-.59-6.23-1.71l-.45-.27-3.71.97.99-3.62-.29-.47A10.62 10.62 0 0 1 5.33 16c0-5.89 4.79-10.68 10.68-10.68S26.69 10.11 26.69 16 21.9 26.98 16.01 26.98z"/></svg>
+  </a>
+
+  <footer>
+    <div class="container">© <span id="year"></span> SF 2L Abogados. Todos los derechos reservados.</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendMail(event){
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const subject = encodeURIComponent("Consulta desde la web - " + name);
+      const body = encodeURIComponent(
+        "Nombre: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Teléfono: " + phone + "\n\n" +
+        "Consulta:\n" + message
+      );
+      window.location.href = "mailto:sf2labogados@gmail.com,josejsanchezfernandez@gmail.com?subject=" + subject + "&body=" + body;
+    }
+
+    const track = document.getElementById("reviewTrack");
+    const dots = document.querySelectorAll(".dot");
+    let current = 0;
+    function goToReview(index){
+      current = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d,i)=>d.classList.toggle("active", i===index));
+    }
+    dots.forEach(dot => dot.addEventListener("click", () => goToReview(Number(dot.dataset.index))));
+    setInterval(() => goToReview((current + 1) % 3), 4500);
+  </script>
+</body>
+</html>
