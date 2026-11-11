@@ -174,7 +174,8 @@
     M.footTop = absTop(foot);
     fills.forEach(f => { f.top = absTop(f.el); f.h = f.el.offsetHeight; });
     steps.forEach(o => { o.top = absTop(o.el); o.h = o.el.offsetHeight; });
-    speeds.forEach(o => { o.top = absTop(o.el); o.h = o.el.offsetHeight; });
+    // stacked in one column on mobile: no parallax there, or the cards would overlap
+    speeds.forEach(o => { o.el.style.translate = ''; o.top = absTop(o.el); o.h = o.el.offsetHeight; });
     paras.forEach(o => { o.top = absTop(o.box); o.h = o.box.offsetHeight; });
     update(true);
   }
@@ -258,7 +259,7 @@
 
     // parallax
     if (!RM) {
-      speeds.forEach(o => {
+      if (!mqMobile.matches) speeds.forEach(o => {
         const c = o.top + o.h / 2 - sy - vh / 2;
         if (Math.abs(c) > vh * 1.5) return;
         o.el.style.translate = `0 ${(c * o.s).toFixed(1)}px`;
@@ -288,6 +289,9 @@
     slideEls.forEach(el => {
       const f = (mob ? el.dataset.focalM : el.dataset.focal) || '.5 .5';
       const [fx, fy] = f.split(' ').map(Number);
+      const img = el.querySelector('img');
+      const o = `${fx * 100}% ${fy * 100}%`;
+      if (img.style.transformOrigin !== o) img.style.transformOrigin = o; // the slow zoom keeps the focal point in place
       const ex = fx + (0.5 - fx) * reelP, ey = fy + (0.5 - fy) * reelP;
       let tx = l + bw / 2 - W / 2 - (W * ex - W / 2) * s;
       let ty = t + bh / 2 - H / 2 - (H * ey - H / 2) * s;
