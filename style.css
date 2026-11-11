@@ -366,6 +366,11 @@ ol,ul{list-style:none}
 .check.is-bad .check__in input{outline:1px solid var(--err);outline-offset:2px}
 .check a{text-decoration:underline}
 .form__send{align-self:flex-start}
+.form__send:disabled{cursor:default}
+.form__send.is-busy{opacity:.75}
+.form.is-sent .form__send{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.form__msg a{text-decoration:underline}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form__msg{font-size:14px;min-height:1.4em;color:#fff;transition:opacity .4s}
 .form__msg.is-error{color:var(--err)}
 .form__msg.is-ok{display:flex;gap:8px;align-items:flex-start}

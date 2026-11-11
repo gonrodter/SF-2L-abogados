@@ -503,6 +503,64 @@
       });
     });
 
+    const btn = $('.form__send', form);
+    const btnLabel = $('.roll__in', btn);
+    let sending = false;
+    const setBtn = (label, busy) => {
+      btnLabel.textContent = label; btnLabel.dataset.t = label;
+      btn.disabled = busy; btn.classList.toggle('is-busy', busy);
+    };
+    async function sendForm() {
+      if (sending) return;
+      sending = true;
+      setBtn('Enviando…', true);
+      msg.classList.remove('is-ok', 'is-error');
+      msg.textContent = '';
+      const payload = {
+        nombre: val('nombre'), telefono: val('telefono'), email: val('email'), mensaje: val('mensaje'),
+        area: (form.querySelector('input[name="area"]:checked') || {}).value || 'Otro asunto',
+        privacidad: F.privacidad.checked,
+        empresa: F.empresa ? F.empresa.value : ''
+      };
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 15000);
+        const r = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: ctrl.signal
+        });
+        clearTimeout(timer);
+        const res = await r.json().catch(() => ({}));
+        if (!r.ok) {
+          // server-side validation: mark the same fields the browser would
+          if (res.fields) Object.entries(res.fields).forEach(([n, t]) => {
+            const box = F[n] && F[n].closest('.field,.check');
+            if (!box) return;
+            box.classList.add('is-bad'); box.classList.remove('is-ok', 'no-msg');
+            const slot = $('#err-' + n); if (slot) slot.textContent = t;
+          });
+          throw new Error(res.error || 'error');
+        }
+        form.reset();
+        touched.clear(); submitted = false;
+        $$('.field,.check', form).forEach(b => b.classList.remove('is-ok', 'is-bad', 'no-msg'));
+        if (count) count.textContent = '0/1500';
+        form.classList.add('is-sent');
+        msg.classList.add('is-ok');
+        msg.textContent = `Gracias${payload.nombre ? ', ' + payload.nombre.split(' ')[0] : ''}. Hemos recibido tu mensaje y te responderemos lo antes posible.`;
+        setBtn('Mensaje enviado', true);
+        setTimeout(() => { form.classList.remove('is-sent'); setBtn('Enviar mensaje', false); }, 6000);
+      } catch (err) {
+        msg.classList.add('is-error');
+        msg.innerHTML = 'No hemos podido enviar el mensaje. Inténtalo de nuevo o llámanos al <a href="tel:+34600785104">600 785 104</a>.';
+        setBtn('Enviar mensaje', false);
+      } finally {
+        sending = false;
+      }
+    }
+
     form.addEventListener('submit', e => {
       e.preventDefault();
       submitted = true;
@@ -519,21 +577,7 @@
         first.focus({ preventScroll: !!lenis });
         return;
       }
-      const nombre = val('nombre'), tel = val('telefono'), email = val('email'), texto = val('mensaje');
-      const area = (form.querySelector('input[name="area"]:checked') || {}).value || 'Consulta';
-      const body = [
-        `Nombre: ${nombre}`,
-        tel && `Teléfono: ${tel}`,
-        email && `Email: ${email}`,
-        `Asunto: ${area}`,
-        '',
-        texto,
-        '',
-        '(Enviado desde la web de SF 2L Abogados)'
-      ].filter(v => v !== false && v !== undefined).join('\n');
-      location.href = `mailto:sf2labogados@gmail.com?subject=${encodeURIComponent(`Consulta web · ${area} · ${nombre}`)}&body=${encodeURIComponent(body)}`;
-      msg.classList.add('is-ok');
-      msg.textContent = 'Listo. Se ha abierto tu correo con el mensaje preparado, solo tienes que enviarlo. Si no se abre, llámanos al 600 785 104.';
+      sendForm();
     });
   }
 

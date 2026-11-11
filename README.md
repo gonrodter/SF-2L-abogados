@@ -30,7 +30,12 @@ Ver en local: `python3 -m http.server 8771` y abrir http://localhost:8771
 
 ## Contacto
 
-- Formulario sin backend: valida y abre el correo del usuario (`mailto:` a sf2labogados@gmail.com) con el mensaje preparado
+- Formulario funcional: el navegador valida y envía por `fetch` a `api/contact.js` (función serverless de Vercel), que vuelve a validar con las mismas reglas y manda el correo con [Resend](https://resend.com). Campo trampa `empresa` (oculto) contra bots. Si falla, el formulario lo dice y ofrece el teléfono
+- Variables de entorno en Vercel (Project → Settings → Environment Variables):
+  - `RESEND_API_KEY`: clave de Resend
+  - `CONTACT_TO`: destinatario. **Ahora, pruebas: el correo de Gonzalo.** Cuando esté validado: `sf2labogados@gmail.com` (admite varios separados por comas)
+  - `CONTACT_FROM`: remitente. Sin dominio verificado en Resend: `Web SF 2L <onboarding@resend.dev>`, que **solo entrega a la dirección dueña de la cuenta de Resend**. Para enviar a sf2labogados@gmail.com hay que verificar en Resend el dominio del despacho y usar p. ej. `Web SF 2L Abogados <web@dominio.es>`
+- El correo llega con "Responder" apuntando al email del cliente (si lo dejó)
 - Mapa de Google solo bajo demanda (botón "Ver mapa"), así no hay cookies de terceros hasta que se pulsa → no hace falta banner de cookies
 
 ## Datos a confirmar con José antes de publicar
