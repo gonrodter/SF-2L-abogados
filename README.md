@@ -8,7 +8,7 @@ Ver en local: `python3 -m http.server 8771` y abrir http://localhost:8771
 
 - `index.html` · loader, hero, el despacho, áreas (cubo 3D), el local (galería horizontal), equipo, cómo trabajamos, opiniones, contacto/pie
 - `aviso-legal.html`, `privacidad.html` (noindex) · **tienen campos `[pendiente]` marcados en rojo**
-- `assets/img/` WebP en 3 tamaños, generados desde `source-assets/fotos/` (fotos de José) con `exif_transpose`. **Si se cambia una foto, guardarla con otro nombre** (caché de 7 días)
+- `assets/img/` WebP en 3 tamaños, generados desde `source-assets/fotos/` (fotos de José) con `exif_transpose`. `source-assets/` no se sube al repo (público): originales del iPhone con EXIF. **Si se cambia una foto, guardarla con otro nombre** (caché de 7 días)
 - `assets/fonts/` TeX Gyre Heros 400/700 (clon libre de Helvetica, licencia GUST; ario usa Helvetica)
 - `assets/vendor/lenis-1.1.13.min.js` scroll suave (MIT), solo escritorio con ratón y sin "reducir movimiento"
 - `assets/logo-sf2l-abogados.svg` logo vectorizado con potrace desde `source-assets/fotos/IMG_4286.jpeg`. En el HTML cada pieza es un símbolo (`#g-S`, `#g-F`, `#g-2`, `#g-L`, `#g-barTop`, `#g-barBot`, `#g-abogados`) y se reutiliza con `<use>` en cabecera, hero, equipo y pie
