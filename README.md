@@ -30,12 +30,10 @@ Ver en local: `python3 -m http.server 8771` y abrir http://localhost:8771
 
 ## Contacto
 
-- Formulario funcional: el navegador valida y envía por `fetch` a `api/contact.js` (función serverless de Vercel), que vuelve a validar con las mismas reglas y manda el correo con [Resend](https://resend.com). Campo trampa `empresa` (oculto) contra bots. Si falla, el formulario lo dice y ofrece el teléfono
-- Variables de entorno en Vercel (Project → Settings → Environment Variables):
-  - `RESEND_API_KEY`: clave de Resend
-  - `CONTACT_TO`: destinatario. **Ahora, pruebas: el correo de Gonzalo.** Cuando esté validado: `sf2labogados@gmail.com` (admite varios separados por comas)
-  - `CONTACT_FROM`: remitente. Sin dominio verificado en Resend: `Web SF 2L <onboarding@resend.dev>`, que **solo entrega a la dirección dueña de la cuenta de Resend**. Para enviar a sf2labogados@gmail.com hay que verificar en Resend el dominio del despacho y usar p. ej. `Web SF 2L Abogados <web@dominio.es>`
-- El correo llega con "Responder" apuntando al email del cliente (si lo dejó)
+- Formulario funcional con [FormSubmit](https://formsubmit.co) (gratis, sin cuentas ni claves): el navegador valida y envía por `fetch` a `https://formsubmit.co/ajax/<correo>` (`FORM_ENDPOINT` en `app.js`). Asunto "Consulta web · área · nombre", plantilla en tabla, responder contesta al email del cliente. Campo trampa `empresa` → `_honey` contra bots. Si falla, el formulario lo dice y ofrece el teléfono
+- **Activación**: el primer envío a un correo nuevo no se entrega; FormSubmit manda a ese buzón un correo "Activate Form" y hay que pulsar el enlace una vez. Después llegan todos
+- **Ahora, pruebas: va al correo de Gonzalo.** Cuando esté validado: cambiar `FORM_ENDPOINT` a `sf2labogados@gmail.com`, enviar un formulario y que Josechu active desde el correo que le llegue. Tras activar, FormSubmit da un alias aleatorio: sustituir el correo por ese alias en `FORM_ENDPOINT` para que la dirección no quede en el código público
+- Si se quiere copia a otro correo (la web anterior enviaba también a josejsanchezfernandez@gmail.com): añadir `_cc` en el cuerpo del envío
 - Mapa de Google solo bajo demanda (botón "Ver mapa"), así no hay cookies de terceros hasta que se pulsa → no hace falta banner de cookies
 
 ## Datos a confirmar con José antes de publicar

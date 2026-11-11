@@ -428,7 +428,11 @@
     requestAnimationFrame(measure);
   });
 
-  /* ---------- contact form: validation + mailto ---------- */
+  /* ---------- contact form: validation + send (FormSubmit) ---------- */
+  // Recipient. FormSubmit asks the inbox to confirm once (activation email on the first send).
+  // After activating, swap the address for the random alias FormSubmit sends, so it is not public.
+  // TESTING: developer's inbox. Change to sf2labogados@gmail.com when approved.
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/rodriguez.terron.gonzalo@gmail.com';
   const form = $('#form');
   if (form) {
     const F = form.elements;
@@ -525,24 +529,25 @@
       try {
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), 15000);
-        const r = await fetch('/api/contact', {
+        const r = await fetch(FORM_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            Nombre: payload.nombre,
+            'Teléfono': payload.telefono || '—',
+            ...(payload.email ? { email: payload.email } : {}), // FormSubmit sets reply-to from "email"
+            Asunto: payload.area,
+            Mensaje: payload.mensaje,
+            _subject: `Consulta web · ${payload.area} · ${payload.nombre}`,
+            _template: 'table',
+            _captcha: 'false',
+            _honey: payload.empresa
+          }),
           signal: ctrl.signal
         });
         clearTimeout(timer);
         const res = await r.json().catch(() => ({}));
-        if (!r.ok) {
-          // server-side validation: mark the same fields the browser would
-          if (res.fields) Object.entries(res.fields).forEach(([n, t]) => {
-            const box = F[n] && F[n].closest('.field,.check');
-            if (!box) return;
-            box.classList.add('is-bad'); box.classList.remove('is-ok', 'no-msg');
-            const slot = $('#err-' + n); if (slot) slot.textContent = t;
-          });
-          throw new Error(res.error || 'error');
-        }
+        if (!r.ok || String(res.success) !== 'true') throw new Error(res.message || 'error');
         form.reset();
         touched.clear(); submitted = false;
         $$('.field,.check', form).forEach(b => b.classList.remove('is-ok', 'is-bad', 'no-msg'));
