@@ -447,11 +447,12 @@ ol,ul{list-style:none}
   .areas__head{display:block}
   .areas__hint{margin-top:24px}
   .cube-pin{height:340vh}
-  .cube-stage{perspective:1600px}
+  /* centred in the space left above the floating Llamar / WhatsApp buttons */
+  .cube-stage{perspective:1600px;flex-direction:column;gap:18px;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
   .cube-row{flex-direction:column}
-  .cube{--s:min(80vw,38svh)}
+  .cube{--s:min(78vw,calc((100svh - 150px) / 2))}
 
-  .cube-prog{bottom:10px}
+  .cube-prog{position:static;transform:none}
   .area__d{display:none}
   .area__rows{font-size:calc(var(--s) * .034)}
 
