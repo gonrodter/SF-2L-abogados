@@ -48,7 +48,8 @@ Ver en local: `python3 -m http.server 8771` y abrir http://localhost:8771
 
 - [x] La foto de la sala es José (confirmado)
 - [ ] Que **2L = Lara Luna** (la sección de equipo dice "SF de Sánchez Fernández y 2L de Lara Luna")
-- [x] Cargos: los dos "Abogado y socio fundador" (decidido)
+- [x] Cargos: José "Abogado y socio fundador" (colegiado); Miguel "Socio fundador" (no colegiado, no se le llama abogado)
+- [x] Hero sin fotos de personas (José no quiere salir solo): slide 1 = mostrador con logo (IMG_1072)
 - [ ] 5,0 en Google y 3 sedes (Sevilla, Algeciras, Melilla): vienen de la web anterior
 - [ ] Horario (no aparece en ningún sitio; la web anterior solo decía "cierre 14:00")
 - [ ] Titular, NIF, colegio y n.º de colegiado para aviso legal y privacidad
